@@ -22,6 +22,7 @@ class TreeNode {
   }
 }
 
+//  최대깊이-1 제곱 < 배열길이 < 최대깊이 제곱
 // function maxDepth(root: any): number {
 //   for (let i = 0; i < root.length; i++) {
 //     if (2 ** i + 1 > root.length) {
@@ -31,27 +32,24 @@ class TreeNode {
 //   return 1;
 // }
 
-function maxDepth(root: TreeNode | null): number {
-  return root ? Math.max(maxDepth(root.left), maxDepth(root.right)) + 1 : 0;
-}
-
-// [3,9,20,null,null,15,7]
-// [9]
-// null
-// null
-// [20,15,7]
-// [15]
-// null
-// null
-
 // console.log(maxDepth([3, 9, 20, null, null, 15, 7])); //3
 // console.log(maxDepth([1, null, 2])); //2
 // console.log(maxDepth([1, null, null])); //1
+
+function maxDepth(root: TreeNode | null): number {
+  if (!root) return 0;
+  if (root.val !== 0) {
+    console.log(root.left, root.right);
+  }
+
+  return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+}
 
 const root = new TreeNode(3);
 root.left = new TreeNode(9);
 root.right = new TreeNode(20);
 root.right.left = new TreeNode(15);
 root.right.right = new TreeNode(7);
+root.right.right.right = new TreeNode(17);
 
-console.log(maxDepth(root));
+console.log("result", maxDepth(root));

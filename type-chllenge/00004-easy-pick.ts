@@ -16,6 +16,13 @@ type cases = [
   MyPick<Todo, "title" | "completed" | "invalid">
 ];
 
+type cases2 = [
+  Expect<Equal<Expected1, Pick<Todo, "title">>>,
+  Expect<Equal<Expected2, Pick<Todo, "title" | "completed">>>,
+  // @ts-expect-error
+  Pick<Todo, "title" | "completed" | "invalid">
+];
+
 interface Todo {
   title: string;
   description: string;
