@@ -25,8 +25,38 @@
  * }
  */
 
+class TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+  constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+    this.val = val === undefined ? 0 : val;
+    this.left = left === undefined ? null : left;
+    this.right = right === undefined ? null : right;
+  }
+}
+
 function sumOfLeftLeaves(root: TreeNode | null): number {
-  return 3;
+  let sum = 0;
+
+  function calculator(root: TreeNode | null, isLeft = false) {
+    if (root === null) {
+      return;
+    }
+
+    if (isLeft && !root.left && !root.right) {
+      sum += root.val;
+    } else {
+      if (root.left) {
+        calculator(root.left, true);
+      }
+      if (root.right) {
+        calculator(root.right, false);
+      }
+    }
+  }
+  calculator(root, false);
+  return sum;
 }
 
 const leavesRoot = new TreeNode(3);

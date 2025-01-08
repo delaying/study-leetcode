@@ -11,16 +11,16 @@
 //  출력: 2
 
 //  Definition for a binary tree node.
-class TreeNode {
-  val: number;
-  left: TreeNode | null;
-  right: TreeNode | null;
-  constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
-    this.val = val === undefined ? 0 : val;
-    this.left = left === undefined ? null : left;
-    this.right = right === undefined ? null : right;
-  }
-}
+// class TreeNode {
+//   val: number;
+//   left: TreeNode | null;
+//   right: TreeNode | null;
+//   constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+//     this.val = val === undefined ? 0 : val;
+//     this.left = left === undefined ? null : left;
+//     this.right = right === undefined ? null : right;
+//   }
+// }
 
 //  최대깊이-1 제곱 < 배열길이 < 최대깊이 제곱
 // function maxDepth(root: any): number {
