@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/sum-of-left-leaves/description/?envType=problem-list-v2&envId=depth-first-search
 
+// 1/9 발표
+
 // root이진 트리의 가 주어지면 , 모든 왼쪽 잎의 합을 반환합니다.
 
 // 리프 는 자식이 없는 노드입니다. 왼쪽 리프 는 다른 노드의 왼쪽 자식인 리프입니다.

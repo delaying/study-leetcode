@@ -1,5 +1,6 @@
 // https://leetcode.com/problems/maximum-depth-of-binary-tree/description/?envType=problem-list-v2&envId=breadth-first-search
 
+// 1/2 발표~!
 // root이진 트리의 가 주어지면 , 최대 깊이를 반환합니다 .
 
 // 이진 트리의 최대 깊이  는 루트 노드에서 가장 먼 리프 노드까지 가장 긴 경로에 있는 노드의 수입니다.
