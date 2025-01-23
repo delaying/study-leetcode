@@ -1,6 +1,8 @@
 // https://leetcode.com/problems/path-sum/description/?envType=problem-list-v2&envId=depth-first-search
 
-// 1/16 발표
+import { TreeNode } from "./404-sum-of-left-leaves";
+
+// 1/23 발표
 
 // DFS 방식으로 풀기!!
 
@@ -38,5 +40,30 @@
  */
 
 function hasPathSum(root: TreeNode | null, targetSum: number): boolean {
-  return false;
+  if (root === null) {
+    return false;
+  }
+
+  // 리프 노드인지 확인
+  if (root.left === null && root.right === null) {
+    return root.val === targetSum;
+  }
+
+  return (
+    hasPathSum(root.left, targetSum - root.val) ||
+    hasPathSum(root.right, targetSum - root.val)
+  );
 }
+
+const sumRoot = new TreeNode(5);
+sumRoot.left = new TreeNode(4);
+sumRoot.right = new TreeNode(8);
+sumRoot.left.left = new TreeNode(11);
+sumRoot.right.left = new TreeNode(13);
+sumRoot.right.right = new TreeNode(4);
+sumRoot.left.left.left = new TreeNode(7);
+sumRoot.left.left.right = new TreeNode(2);
+sumRoot.right.right.right = new TreeNode(1);
+
+console.log("result", hasPathSum(sumRoot, 22));
+console.log(sumRoot);

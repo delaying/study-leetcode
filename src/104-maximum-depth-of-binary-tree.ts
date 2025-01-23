@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/maximum-depth-of-binary-tree/description/?envType=problem-list-v2&envId=breadth-first-search
 
+import { TreeNode } from "./404-sum-of-left-leaves";
+
 // 1/2 발표~!
 // root이진 트리의 가 주어지면 , 최대 깊이를 반환합니다 .
 
