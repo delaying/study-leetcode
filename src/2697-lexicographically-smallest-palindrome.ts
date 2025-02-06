@@ -23,5 +23,22 @@
 //  설명: "seven"을 팰린드롬으로 만들기 위한 최소 연산 횟수는 1이고, 한 문자를 수정하여 얻을 수 있는 사전적으로 가장 작은 팰린드롬 문자열은 "neven"입니다.
 
 function makeSmallestPalindrome(s: string): string {
-  return "";
+  const palindrome = s.split("");
+
+  let left = 0;
+  let right = palindrome.length - 1;
+
+  while (left < right) {
+    if (palindrome[left] < palindrome[right]) {
+      palindrome[right] = palindrome[left];
+    } else {
+      palindrome[left] = palindrome[right];
+    }
+    ++left;
+    --right;
+  }
+  return palindrome.join("");
 }
+
+console.log(makeSmallestPalindrome("egcfe")); // efcfe
+console.log(makeSmallestPalindrome("seven")); // neven
