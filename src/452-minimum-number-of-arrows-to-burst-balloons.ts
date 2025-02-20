@@ -30,21 +30,46 @@ function findMinArrowShots(points: number[][]): number {
   if (points.length === 0) {
     return 0;
   }
+
+  for (let i = 0; i < points.length - 1; i++) {
+    for (let j = 0; j < points.length - i - 1; j++) {
+      if (points[j][1] > points[j + 1][1]) {
+        let temp = points[j];
+        points[j] = points[j + 1];
+        points[j + 1] = temp;
+      }
+    }
+  }
+  // points.sort((a, b) => a[0] - b[0]);
+
   let count = 1;
-  points.sort((a, b) => a[0] - b[0]);
-  let min = points[0][0];
   let max = points[0][1];
 
   for (let i = 0; i <= points.length - 1; i++) {
     if (points[i][0] > max) {
       count++;
-      min = points[i][0];
       max = points[i][1];
     } else {
-      min = points[i][0];
       max = points[i][1] < max ? points[i][1] : max;
     }
   }
 
   return count;
 }
+
+console.log(
+  findMinArrowShots([
+    [1, 2],
+    [3, 4],
+    [5, 6],
+    [7, 8],
+  ])
+);
+console.log(
+  findMinArrowShots([
+    [1, 2],
+    [2, 3],
+    [3, 4],
+    [4, 5],
+  ])
+);

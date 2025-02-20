@@ -21,15 +21,7 @@
 //  설명: 이미 겹치지 않으므로 간격을 제거할 필요가 없습니다.
 
 function eraseOverlapIntervals(intervals: number[][]): number {
-  for (let i = 0; i < intervals.length - 1; i++) {
-    for (let j = 0; j < intervals.length - i - 1; j++) {
-      if (intervals[j][1] > intervals[j + 1][1]) {
-        let temp = intervals[j];
-        intervals[j] = intervals[j + 1];
-        intervals[j + 1] = temp;
-      }
-    }
-  }
+  intervals.sort((a, b) => a[0] - b[0]);
 
   let result = 0;
   let target = intervals[0];
