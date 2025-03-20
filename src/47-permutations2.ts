@@ -14,33 +14,29 @@
 
 function permuteUnique(nums: number[]): number[][] {
   const result: number[][] = [];
-  const perm: number[] = [];
-  const count: { [key: number]: number } = {};
+  nums.sort((a, b) => a - b); // 중복을 피하기 위해 정렬
 
-  nums.forEach((n) => {
-    count[n] = ++count[n] || 1;
-  });
-
-  function dfs() {
-    if (perm.length === nums.length) {
-      result.push([...perm]);
+  function backtrack(path: number[], used: boolean[]) {
+    if (path.length === nums.length) {
+      result.push([...path]);
       return;
     }
 
-    for (const n in count) {
-      if (count[n] > 0) {
-        perm.push(+n);
-        count[n] -= 1;
+    for (let i = 0; i < nums.length; i++) {
+      if (used[i]) continue; // 이미 사용된 숫자는 건너뜀
+      if (i > 0 && nums[i] === nums[i - 1] && !used[i - 1]) {
+        continue;
+      } // 중복 숫자 건너뜀
 
-        dfs();
-
-        count[n] += 1;
-        perm.pop();
-      }
+      path.push(nums[i]);
+      used[i] = true;
+      backtrack(path, used);
+      path.pop();
+      used[i] = false;
     }
   }
 
-  dfs();
+  backtrack([], Array(nums.length).fill(false));
   return result;
 }
 

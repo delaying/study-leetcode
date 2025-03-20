@@ -25,7 +25,7 @@
 
 /* _____________ Your Code Here _____________ */
 
-declare function PromiseAll(values: any): any;
+declare function PromiseAll(values: any): Awaited<values>;
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";

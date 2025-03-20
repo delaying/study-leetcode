@@ -16,5 +16,30 @@
 //  출력: [[1]]
 
 function permute(nums: number[]): number[][] {
-  return [];
+  const result: number[][] = [];
+
+  function backtrack(path: number[], used: boolean[]) {
+    if (path.length === nums.length) {
+      result.push([...path]);
+      return;
+    }
+
+    for (let i = 0; i < nums.length; i++) {
+      if (used[i]) continue;
+
+      path.push(nums[i]);
+      used[i] = true;
+      backtrack(path, used);
+      path.pop();
+      used[i] = false;
+    }
+  }
+
+  backtrack([], Array(nums.length).fill(false));
+  return result;
 }
+
+// 테스트 케이스
+console.log(permute([1, 1, 2])); // [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+// console.log(permute([0, 1])); // [[0,1],[1,0]]
+// console.log(permute([1])); // [[1]]
