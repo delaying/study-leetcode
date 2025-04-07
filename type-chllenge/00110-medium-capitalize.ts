@@ -19,8 +19,6 @@
 
 /* _____________ Your Code Here _____________ */
 
-// type MyCapitalize<S extends string> = any;
-
 type MyCapitalize<S extends string> = S extends `${infer x}${infer tail}`
   ? `${Uppercase<x>}${tail}`
   : S;

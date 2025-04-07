@@ -14,7 +14,6 @@
   ```ts
   type replaced = Replace<'types are fun!', 'fun', 'awesome'> // expected to be 'types are awesome!'
   ```
-
   > View on GitHub: https://tsch.js.org/116
 */
 
