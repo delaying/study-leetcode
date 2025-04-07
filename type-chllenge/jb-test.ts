@@ -1,8 +1,8 @@
 // 4/10 is as 타입문법 확인해보기!!
 
-// type AdDefaultType = {
-//   adId: string;
-// };
+type AdDefaultType = {
+  adId: string;
+};
 
 export type AdDisplayBannerType = {
   displayType: "BANNER";
@@ -19,5 +19,7 @@ const a: AdType[] = [];
 
 // adType -> displayType
 function test(aa: AdType[]) {
-  return aa.filter((ad) => ad.displayType === "BANNER");
+  return aa.filter(
+    (ad): ad is AdDisplayBannerType => ad.displayType === "BANNER"
+  );
 }
